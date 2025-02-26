@@ -21,7 +21,7 @@ const authorized = asyncHandlerPromise(async (req, res, next) => {
   }
 
   if (!token) {
-    req.status(401);
+    res.status(401);
     throw new Error("Not authorized - no token");
   }
 });
