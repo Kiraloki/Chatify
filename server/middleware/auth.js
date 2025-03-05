@@ -4,10 +4,11 @@ const UserModel = require("../models/user");
 
 const authorized = asyncHandlerPromise(async (req, res, next) => {
   let token;
-
+  // console.log(req.headers.authorization);
+  // console.log(typeof req.headers.authorization);
   if (
     req.headers.authorization &&
-    req.headers.authorization.startswith("Bearer")
+    req.headers.authorization?.split(" ")[0] === "Bearer"
   ) {
     try {
       token = req.headers.authorization.split(" ")[1];
